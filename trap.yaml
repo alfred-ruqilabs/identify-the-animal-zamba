@@ -1,10 +1,9 @@
-name: identify-the-animal-zamba
-profile:
-  model: speciesnet
-  framework: zamba
-setup_cmd: uv sync
-cmd: uv run python solve.py
-
 tasks:
   identify-the-animal:
-    source: git+https://github.com/alfred-ruqilabs/identify-the-animal.git@main
+    cmd: uv run python solve.py
+    traptask: ./.task
+    timeout: 1800
+    solution: identify-the-animal-zamba
+    metadata:
+      model: speciesnet
+      framework: zamba

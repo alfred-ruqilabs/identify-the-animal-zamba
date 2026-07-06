@@ -80,12 +80,10 @@ def pick_label(pred_rows: list[dict[str, str]]) -> str:
 
 
 def main() -> None:
-    manifest = json.loads(os.environ["TRAP_MANIFEST"])
-    inputs_dir = Path(manifest["inputs_dir"])
-    image_path = inputs_dir / "document.jpg"
-    if not image_path.exists():
-        image_path = inputs_dir / "document.jpeg"
-    outputs_dir = Path(manifest["outputs_dir"])
+    inputs = json.loads(os.environ["INPUTS"])
+    outputs = json.loads(os.environ["OUTPUTS"])
+    image_path = Path(inputs["document.jpg"]) if "document.jpg" in inputs else Path(inputs["document.jpeg"])
+    outputs_dir = Path(next(iter(outputs.values()))).parent if outputs else Path('.')
     outputs_dir.mkdir(parents=True, exist_ok=True)
 
     with tempfile.TemporaryDirectory(prefix="zamba-input-") as tmp_in, tempfile.TemporaryDirectory(prefix="zamba-out-") as tmp_out:
@@ -107,7 +105,7 @@ def main() -> None:
             "--overwrite",
             "--yes",
         ]
-        subprocess.run(cmd, check=True)
+        proc = subprocess.run(cmd, check=True, capture_output=True, text=True)
         csv_path = tmp_out / "zamba_predictions.csv"
         with csv_path.open(newline="") as f:
             rows = list(csv.DictReader(f))
