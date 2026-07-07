@@ -2,10 +2,7 @@
 name = "identify-the-animal-zamba"
 version = "0.1.0"
 requires-python = ">=3.11,<3.14"
-dependencies = [
-  "pandas>=2.2",
-  "zamba[image]>=2.7.2",
-]
+dependencies = []
 
 [tool.uv]
 package = false

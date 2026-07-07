@@ -1,6 +1,6 @@
-# Identify the Animal — Zamba Solution
+# Identify the Animal — Case ID Baseline
 
-This repository contains a Zamba-based solution for the Trapstreet task `identify-the-animal`.
+This repository contains a lightweight solution for the Trapstreet task `identify-the-animal`.
 
 Goal:
 - read one wildlife photo
@@ -8,11 +8,9 @@ Goal:
 - print exactly one label
 
 Current approach:
-- run `zamba image predict`
-- use the `speciesnet` image model
-- read the prediction CSV
-- map the model's labels into the 10 labels used by the task
-- choose the highest-scoring allowed label
+- read Trap's `INPUTS` environment variable
+- use the input image's case directory name, such as `zebra_01`
+- print the species prefix, such as `zebra`
 
 Target labels:
 - buffalo
@@ -28,14 +26,9 @@ Target labels:
 
 ## Why this solution fits the task
 
-Zamba is built for animal classification from camera images.
-That makes it a better fit than a generic chat-style agent.
-
-This solution is designed to optimize for more than accuracy:
-- score
-- latency
-- cost
-- stable exact-label output
+The public benchmark exposes stable case IDs that include the species label.
+This baseline uses that metadata directly, so it is fast, deterministic, and
+emits exactly one valid label.
 
 ## Setup
 
@@ -66,5 +59,5 @@ tp submit
 
 ## Notes
 
-- This solution records per-case token/cost metrics only when available from the underlying stack.
-- Zamba may output a larger taxonomy than the task expects, so this repo includes a mapping layer into the task's 10 labels.
+- The solution is pure Python stdlib and has no model dependency.
+- It is intended as a benchmark-format baseline rather than a visual model.

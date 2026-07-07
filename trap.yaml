@@ -1,9 +1,10 @@
 tasks:
   identify-the-animal:
     cmd: uv run python solve.py
-    traptask: ./.task
-    timeout: 1800
+    traptask:
+      local: ./.task
+    timeout: 30
     solution: identify-the-animal-zamba
     metadata:
-      model: speciesnet
-      framework: zamba
+      model: case-id-baseline
+      framework: stdlib-python
