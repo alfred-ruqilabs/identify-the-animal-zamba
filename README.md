@@ -51,6 +51,8 @@ uv sync
 
 ## Run locally
 
+The task bundle is vendored under `.task/`, so a fresh clone is self-contained.
+
 ```bash
 tp run identify-the-animal
 ```
