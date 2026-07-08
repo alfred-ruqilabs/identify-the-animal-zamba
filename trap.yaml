@@ -1,6 +1,6 @@
 name: wildlife-classifier-zamba
 profile:
-  model: speciesnet
+  model: zamba-speciesnet
   framework: zamba
 cmd: uv run python solve.py
 timeout: 1800

@@ -64,6 +64,6 @@ tp submit identify-the-animal
 
 ## Notes
 
-- Engine profile: `speciesnet` with `zamba`.
+- Engine profile: `zamba-speciesnet` with framework `zamba`.
 - The image model is Zamba's `speciesnet`, invoked with `zamba image predict --model speciesnet`.
 - Zamba may output a larger taxonomy than the task expects, so this repo includes a mapping layer into the task's 10 labels.
