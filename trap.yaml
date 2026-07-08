@@ -1,9 +1,9 @@
-name: trapstreet-baselines
+name: wildlife-classifier-zamba
 profile:
-  model: wildlife-camera-baseline
-  framework: published-answer-key-lookup
+  model: speciesnet
+  framework: zamba
 cmd: uv run python solve.py
-timeout: 30
+timeout: 1800
 tasks:
   identify-the-animal:
     source: git+https://github.com/trapstreet/trapstreet-tasks.git@c9c3b4c114a32739999dceed2de1a44f30c6cdac#subdirectory=tasks/wildlife_camera_trap

@@ -1,7 +1,7 @@
-# Trapstreet Baselines
+# Wildlife Classifier Zamba
 
-This repository contains lightweight baseline solutions for Trapstreet tasks.
-The current solution targets `identify-the-animal`.
+This repository contains a Zamba-based wildlife image classifier for the
+Trapstreet task `identify-the-animal`.
 
 Goal:
 - read one wildlife photo
@@ -10,8 +10,11 @@ Goal:
 
 Current approach:
 - read Trap's `TRAP_MANIFEST` environment variable
-- use the published case ID, such as `case_01`
-- print the matching species label
+- run `zamba image predict`
+- use Zamba's `speciesnet` image model
+- read the prediction CSV
+- map the model's labels into the 10 labels used by the task
+- choose the highest-scoring allowed label
 
 Target labels:
 - buffalo
@@ -27,15 +30,16 @@ Target labels:
 
 ## Why this solution fits the task
 
-The public benchmark exposes stable case IDs and expected outputs. This baseline
-uses those published labels directly, so it is fast, deterministic, and emits
-exactly one valid label.
+Zamba is built for animal classification from camera images. This solution uses
+the `speciesnet` model through the Zamba CLI, then normalizes the model output
+into the task's required label set.
 
 ## Setup
 
 Requires:
 - Python 3.11+
 - `uv`
+- Zamba dependencies installed by `uv sync`
 
 Install deps:
 
@@ -60,6 +64,6 @@ tp submit identify-the-animal
 
 ## Notes
 
-- Engine profile: `wildlife-camera-baseline` with `published-answer-key-lookup`.
-- The solution is pure Python stdlib and has no model dependency.
-- It is intended as a benchmark-format baseline rather than a visual model.
+- Engine profile: `speciesnet` with `zamba`.
+- The image model is Zamba's `speciesnet`, invoked with `zamba image predict --model speciesnet`.
+- Zamba may output a larger taxonomy than the task expects, so this repo includes a mapping layer into the task's 10 labels.
