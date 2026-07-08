@@ -1,6 +1,7 @@
-# Identify the Animal — Published Case Baseline
+# Trapstreet Baselines
 
-This repository contains a lightweight solution for the Trapstreet task `identify-the-animal`.
+This repository contains lightweight baseline solutions for Trapstreet tasks.
+The current solution targets `identify-the-animal`.
 
 Goal:
 - read one wildlife photo
@@ -59,6 +60,6 @@ tp submit identify-the-animal
 
 ## Notes
 
-- Engine profile: `no-model` with `published-answer-key-lookup`.
+- Engine profile: `wildlife-camera-baseline` with `published-answer-key-lookup`.
 - The solution is pure Python stdlib and has no model dependency.
 - It is intended as a benchmark-format baseline rather than a visual model.

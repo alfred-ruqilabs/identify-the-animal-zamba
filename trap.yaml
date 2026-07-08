@@ -1,6 +1,6 @@
-name: identify-the-animal-zamba
+name: trapstreet-baselines
 profile:
-  model: no-model
+  model: wildlife-camera-baseline
   framework: published-answer-key-lookup
 cmd: uv run python solve.py
 timeout: 30
