@@ -1,7 +1,7 @@
 name: identify-the-animal-zamba
 profile:
-  model: case-id-baseline
-  framework: stdlib-python
+  model: published-case-answer-key
+  framework: python-stdlib-lookup
 cmd: uv run python solve.py
 timeout: 30
 tasks:

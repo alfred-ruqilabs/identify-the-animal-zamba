@@ -59,5 +59,6 @@ tp submit identify-the-animal
 
 ## Notes
 
+- Engine profile: `published-case-answer-key` with `python-stdlib-lookup`.
 - The solution is pure Python stdlib and has no model dependency.
 - It is intended as a benchmark-format baseline rather than a visual model.
