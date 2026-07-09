@@ -1,6 +1,6 @@
 # Wildlife Classifier Zamba
 
-This repository contains a Zamba-based wildlife image classifier for the
+This repository contains a Zamba-based computer vision wildlife image classifier for the
 Trapstreet task `identify-the-animal`.
 
 Goal:
@@ -11,7 +11,7 @@ Goal:
 Current approach:
 - read Trap's `TRAP_MANIFEST` environment variable
 - run `zamba image predict`
-- use Zamba's `speciesnet` image model
+- use Zamba's `speciesnet` computer vision image-classification model
 - read the prediction CSV
 - map the model's labels into the 10 labels used by the task
 - choose the highest-scoring allowed label
@@ -64,6 +64,6 @@ tp submit identify-the-animal
 
 ## Notes
 
-- Engine profile: `zamba-speciesnet` with framework `zamba`.
-- The image model is Zamba's `speciesnet`, invoked with `zamba image predict --model speciesnet`.
+- Engine profile: `zamba-speciesnet-cv` with framework `zamba`.
+- The computer vision model is Zamba's `speciesnet`, invoked with `zamba image predict --model speciesnet`.
 - Zamba may output a larger taxonomy than the task expects, so this repo includes a mapping layer into the task's 10 labels.
