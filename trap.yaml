@@ -6,4 +6,4 @@ cmd: uv run python solve.py
 timeout: 1800
 tasks:
   identify-the-animal:
-    source: git+https://github.com/trapstreet/trapstreet-tasks.git@bcee1890cc2b2dae189700da29afc6aed1e51051#subdirectory=tasks/wildlife_camera_trap
+    source: git+https://github.com/alfred-ruqilabs/identify-the-animal.git@efaa614a016be404b18ea64f45ee343f8644a859
